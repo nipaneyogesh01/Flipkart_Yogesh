@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Main {
+public class ParallelStream {
     public static void main(String[] args) {
         String url = "https://www.flipkart.com/";
 
