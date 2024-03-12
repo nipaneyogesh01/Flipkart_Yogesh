@@ -29,9 +29,9 @@ public class StockPriceValidator {
     }
 
     private static WebDriver initializeWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver"); // Set the path to your chromedriver
+        System.setProperty("webdriver.chrome.driver", "path tochromedriver"); //  path to your chromedriver
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Run Chrome in headless mode (no UI)
+    
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("https://money.rediff.com/losers/bse/daily/groupall");
@@ -41,7 +41,7 @@ public class StockPriceValidator {
     private static HashMap<String, Double> readExcelData() {
         HashMap<String, Double> excelData = new HashMap<>();
         try {
-            FileInputStream fis = new FileInputStream(new File("path/to/your/data.xlsx")); // Set the path to your Excel file
+            FileInputStream fis = new FileInputStream(new File("path to excel .xlsx")); // Set the path to your Excel file
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sheet = workbook.getSheetAt(0); // Assuming data is in the first sheet
 
