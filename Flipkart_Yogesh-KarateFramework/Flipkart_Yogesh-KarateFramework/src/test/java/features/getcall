@@ -1,0 +1,27 @@
+Feature: Booking API Tests
+
+  Background:
+    * url 'https://restful-booker.herokuapp.com'
+
+  Scenario: Auth - CreateToken (POST /auth)
+    Given path '/auth'
+    And request { "username": "admin", "password": "password123" }
+    When method post
+    Then status 200
+    And match response.token == 'abc123'
+
+  Scenario: Booking - GetBookingIds (GET /booking)
+    Given path '/booking'
+    And param firstname = 'John'
+    And param lastname = 'Doe'
+    When method get
+    Then status 200
+    And match response[*].bookingid == [1, 2, 3, 4]
+
+  Scenario: Booking - GetBooking (GET /booking/{id})
+    Given path '/booking/{id}'
+    And path id = 1
+    And header Accept = 'application/json'
+    When method get
+    Then status 200
+    And match response == { "firstname": "Sally", "lastname": "Brown", "totalprice": 111, "depositpaid": true, "bookingdates": { "checkin": "2013-02-23", "checkout": "2014-10-23" }, "additionalneeds": "Breakfast" }
