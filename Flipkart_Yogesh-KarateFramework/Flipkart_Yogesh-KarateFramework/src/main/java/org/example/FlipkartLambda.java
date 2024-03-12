@@ -27,7 +27,7 @@ public class FlipkartLambda{
         return document.select("a[href]")
                 .stream()
                 .map(link -> link.attr("abs:href"))
-                .collect(Collectors.toList()); // Use this instead of toList()
+                .collect(Collectors.toList());
     }
 }
 
